@@ -7,20 +7,25 @@ class MainPage extends Page {
     }
 
     get tabletsSection () {
-        return $('tabletsImg');
+        return $('#tabletsImg');
     }
 
     get laptopsSection () {
-        return $('laptopsImg'); 
+        return $('#laptopsImg'); 
     }
 
     get micesSection () {
-        return $('miceImg');
+        return $('#miceImg');
     }
 
     get headphonesSection () {
-        return $('headphonesImg');
+        return $('#headphonesImg');
     }
+
+    async goToSpeakersSection() {
+        await this.speakersSection.click();
+    }
+
 }
 
 module.exports = new MainPage();
