@@ -38,6 +38,7 @@ const Page = require('./page');
     }
 
     async goToDetailsItem(productName) {
+      await this.bagIcon.click();
       let index = this.summaryBagModalNameItems.findIndex(product => product.getText().includes(productName));
       await this.summaryBagModalImageItems[index].click();
     }
