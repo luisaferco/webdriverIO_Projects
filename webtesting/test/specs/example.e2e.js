@@ -1,14 +1,18 @@
 const LoginPage = require('../pageobjects/login.page');
+const MainPage = require(' ../pageobjects/main.page');
 const SecurePage = require('../pageobjects/secure.page');
+const DetailsPage = require('../pageobjects/details.page');
+const BagPage = require('../pageobjects/bag.page');
 
-describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
-        await LoginPage.open();
+describe('Adding products to cart, a user should review details', () => {
 
-        await LoginPage.login('tomsmith', 'SuperSecretPassword!');
-        await expect(SecurePage.flashAlert).toBeExisting();
-        await expect(SecurePage.flashAlert).toHaveTextContaining(
-            'You logged into a secure area!');
+    it('should see products added to cart from modal', async () => {
+        const itemName = 'HP Roar Mini Wireless Speaker';
+        await MainPage.open();
+        await MainPage.goToSpeakersSection();
+        await DetailsPage.addItemToCart(itemName);
+        await BagPage.goToCartDetails(itemName);
+        await expect(DetailsPage.getDetailsModal).toEqual(itemName);
     });
 });
 
