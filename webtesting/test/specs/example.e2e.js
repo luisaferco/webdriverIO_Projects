@@ -11,7 +11,7 @@ describe('Adding products to cart, a user should review details', () => {
         await MainPage.open();
         await MainPage.goToSpeakersSection();
         await DetailsPage.addItemToCart(itemName);
-        await BagPage.goToDetailsItem(itemName);
+        await BagPage.goToCartDetails(itemName);
         await expect(DetailsPage.getDetailsModal).toEqual(itemName);
     });
 });
