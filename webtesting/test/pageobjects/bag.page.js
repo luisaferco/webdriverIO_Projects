@@ -37,7 +37,7 @@ const Page = require('./page');
       return this.priceItems.reduce((sum, item) => sum + item, 0);    
     }
 
-    async goToDetailsItem(productName) {
+    async goToCartDetails(productName) {
       await this.bagIcon.click();
       let index = this.summaryBagModalNameItems.findIndex(product => product.getText().includes(productName));
       await this.summaryBagModalImageItems[index].click();
