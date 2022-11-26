@@ -30,7 +30,7 @@ npm ci
 
 The project provides some NPM scripts defined in package.json:
 ```
-npm test            # executes the example test suite
+npm run test            # executes the example test suite
 ```
 
 ## Your feedback matters!
