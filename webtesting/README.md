@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Advantage Testing project demo
+=======
+## Advantage demo Testing project
+>>>>>>> d305831824295b57721bf6faf78ea79d46e9d4e5
 
 ## Automation testing using webdriverIO
 
@@ -8,6 +12,7 @@ example.e2e file contains test cases focused on add products to cart
 
 The Page Object desing pattern is implemented.
 
+<<<<<<< HEAD
 ## Prerequisites
 
 To run this project, you'll need:
@@ -41,3 +46,9 @@ Did you fin a bug? submit a pull request.
 
 Have feedback? Let me know on Twitter: [@Luisaferco](https://twitter.com/LuisaFer0826) 
 
+=======
+How to run
+'''
+npm run test
+'''
+>>>>>>> d305831824295b57721bf6faf78ea79d46e9d4e5
