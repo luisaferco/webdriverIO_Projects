@@ -1,8 +1,6 @@
-const LoginPage = require('../pageobjects/login.page');
-const MainPage = require(' ../pageobjects/main.page');
-const SecurePage = require('../pageobjects/secure.page');
-const DetailsPage = require('../pageobjects/details.page');
-const BagPage = require('../pageobjects/bag.page');
+const MainPage = require('../../test/pageobjects/main.page.js');
+const DetailsPage = require('../../test/pageobjects/details.page');
+const BagPage = require('../../test/pageobjects/bag.page');
 
 describe('Adding products to cart, a user should review details', () => {
 
@@ -12,7 +10,7 @@ describe('Adding products to cart, a user should review details', () => {
         await MainPage.goToSpeakersSection();
         await DetailsPage.addItemToCart(itemName);
         await BagPage.goToCartDetails(itemName);
-        await expect(DetailsPage.getDetailsModal).toEqual(itemName);
+        await expect(DetailsPage.details).toHaveText(itemName, {ignoreCase: true});
     });
 });
 

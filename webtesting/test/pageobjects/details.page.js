@@ -13,17 +13,17 @@ class DetailsPage extends Page {
         return $('#productProperties button');
     }
 
-    get modalTitle()  {
+    get details()  {
         return $('#Description > h1');
     }
 
     async addItemToCart(itemName){
-        await this.items.find(item => item.getText().includes(itemName)).click();
+        let elements = await this.items.map(item => item.getText());
+        const index = elements.findIndex(element => element.startsWith(itemName));
+        await this.items[index].click();
         await this.addToCartBtn.click();
     }
 
-    async getDetailsModal() {
-        return await this.modalTitle.getText();
-    }
-
 }
+
+module.exports = new DetailsPage();
