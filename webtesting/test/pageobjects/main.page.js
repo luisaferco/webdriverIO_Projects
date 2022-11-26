@@ -6,24 +6,35 @@ class MainPage extends Page {
         return $('#speakersImg');
     }
 
-    get tabletsSection () {
+    get tabletsSection() {
         return $('#tabletsImg');
     }
 
-    get laptopsSection () {
-        return $('#laptopsImg'); 
+    get laptopsSection() {
+        return $('#laptopsImg');
     }
 
-    get micesSection () {
+    get micesSection() {
         return $('#miceImg');
     }
 
-    get headphonesSection () {
+    get headphonesSection() {
         return $('#headphonesImg');
     }
 
     async goToSpeakersSection() {
+        await browser.setTimeout({ 'pageLoad': 120000 });
+        await browser.waitUntil(
+            async () => (await this.speakersSection.isDisplayed()),
+            {
+                timeout: 60000,
+                timeoutMsg: 'expected page to be loaded after 1m'
+            }
+        );
         await this.speakersSection.click();
+        const items = await $('a.productName')
+        await items.waitForDisplayed({ timeout: 10000 })
+       
     }
 
 }

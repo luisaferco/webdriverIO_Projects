@@ -12,6 +12,6 @@ module.exports = class Page {
     }
 
     open () {
-        return browser.open();
+        return browser.url('https://www.advantageonlineshopping.com/#/');
     }
 }
