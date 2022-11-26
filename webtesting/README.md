@@ -1,4 +1,4 @@
-# Adavantage demo Testing project
+# Advantage Testing project demo
 
 ## Automation testing using webdriverIO
 
