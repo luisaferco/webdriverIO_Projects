@@ -1,0 +1,17 @@
+{
+      "username": "Penny",
+      "email": "pennyPe1@gmail.com",
+      "password": "Testing123",
+      "personalDetails": {
+            "firstName": "Penelope",
+            "lastName": "Beautiful",
+            "phoneNumber": 1230002,
+            "address": {
+                  "country": "Spain",
+                  "city": "Barcelona",
+                  "state": "state",
+                  "adddress": "avenue 123, Flower street",
+                  "postalCode": 1234
+            }
+      }
+}

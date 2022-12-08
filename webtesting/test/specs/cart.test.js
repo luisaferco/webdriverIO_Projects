@@ -1,6 +1,6 @@
-const MainPage = require('../../test/pageobjects/main.page.js');
-const DetailsPage = require('../../test/pageobjects/details.page');
-const BagPage = require('../../test/pageobjects/bag.page');
+const MainPage = require('../pageobjects/main.page.js');
+const DetailsPage = require('../pageobjects/details.page');
+const BagPage = require('../pageobjects/bag.page');
 
 describe('Adding products to cart, a user should review details', () => {
 

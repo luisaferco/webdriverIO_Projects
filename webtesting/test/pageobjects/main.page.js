@@ -23,18 +23,15 @@ class MainPage extends Page {
     }
 
     async goToSpeakersSection() {
-        await browser.setTimeout({ 'pageLoad': 120000 });
-        await browser.waitUntil(
-            async () => (await this.speakersSection.isDisplayed()),
+        await this.speakersSection.isClickable(
             {
                 timeout: 60000,
-                timeoutMsg: 'expected page to be loaded after 1m'
+                timeoutMsg: 'expected section to be loaded after 1m'
             }
         );
         await this.speakersSection.click();
         const items = await $('a.productName')
-        await items.waitForDisplayed({ timeout: 10000 })
-       
+        await items.waitForDisplayed({ timeout: 10000 })    
     }
 
 }
