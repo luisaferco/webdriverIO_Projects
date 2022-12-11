@@ -34,6 +34,17 @@ class MainPage extends Page {
         await items.waitForDisplayed({ timeout: 10000 })    
     }
 
+    async goToMicesSection() {
+        await this.micesSection.isClickable(
+            {
+                timeout: 60000,
+                timeoutMsg: 'expected section to be loaded after 1m'
+            }
+        );
+        await this.micesSection.click();
+        const items = await $('a.productName')
+        await items.waitForDisplayed({ timeout: 10000 })    
+    }
 }
 
 module.exports = new MainPage();

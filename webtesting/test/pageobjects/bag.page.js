@@ -33,6 +33,10 @@ class BagPage extends Page {
     return $$('#product > td:nth-child(3) > div > div');
   }
 
+  get cartLink() {
+    return $('#shoppingCartLink > span');
+  }
+
   totalBagAmount() {
     return this.priceItems.reduce((sum, item) => sum + item, 0);
   }
