@@ -29,6 +29,10 @@ class LoginPage extends Page {
         return $('#signInResultMessage');
     }
 
+    get menuUserLink() {
+        return $('#menuUserLink > span');
+    }
+
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
