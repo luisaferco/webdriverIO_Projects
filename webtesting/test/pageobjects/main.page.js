@@ -22,6 +22,14 @@ class MainPage extends Page {
         return $('#headphonesImg');
     }
 
+    get popularItemsSection() {
+        return $('#popular_items > h3');
+    }
+
+    get popularItems() {
+        return $$('#popular_items > div > div');
+    }
+
     async goToSpeakersSection() {
         await this.speakersSection.isClickable(
             {
@@ -44,6 +52,10 @@ class MainPage extends Page {
         await this.micesSection.click();
         const items = await $('a.productName')
         await items.waitForDisplayed({ timeout: 10000 })    
+    }
+
+    async navigateToPopularItems() {
+       await this.popularItemsSection.scrollIntoView();
     }
 }
 
