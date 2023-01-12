@@ -27,7 +27,7 @@ describe('Adding products to cart, a user should review details', () => {
         await expect(quantity).toEqual(stringUtils.mapQuantity(numberItems));
     });
 
-    it('User go to shopping cart seccion should see summary total amount is according to sum of price items', async() => {
+    it('The user going to the shopping cart section should see that the summary of the total purchase is according to the sum of the price of the items.', async() => {
         await MainPage.open();
         await previewCart.goToCart();
         await expect(shoppingCart.nameOfItems).toHaveText(['HP Z3200 Wireless Mouse','HP Roar Mini Wireless Speaker'], { ignoreCase: true });
