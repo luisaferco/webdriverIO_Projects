@@ -11,7 +11,7 @@ The Page Object desing pattern is implemented.
 ## Prerequisites
 
 To run this project, you'll need:
-- Node.js, a Long-Term Support (LTS) release version 12 or later - [download](https://nodejs.org/en/)
+- Node.js, a Long-Term Support (LTS) release version 16 or later - [download](https://nodejs.org/en/)
 - Java Runtime Environment (JRE) or a Java Development Kit (JDK) version 8 or later - [download](https://adoptopenjdk.net/)
 - Chrome web browser - [download](https://www.google.co.uk/chrome/)
 
