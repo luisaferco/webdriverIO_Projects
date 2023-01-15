@@ -10,7 +10,6 @@ describe('Go to checkout section after adding products to cart', () => {
             await mainPage.open();
             await mainPage.goToSpeakersSection();
             await detailsPage.addItemToCart(itemName);
-            previewCart.bagIcon.waitForClickable({ timeout: 4000 });
             await previewCart.checkoutItems();
             await expect(checkoutPage.signInOptions).toHaveText(['Already have an account?', 'New user?']);
       })

@@ -60,8 +60,6 @@ class PreviewCartPage extends Page {
 
   async removeItem(productName) {
     await this.previewCartDetails();
-    const summary = await this.summaryCartModal;
-    await summary.waitForDisplayed({ timeout: 10000 });
     let items = await this.summaryCartModalNameItems.map(product => product.getText());
     let index = items.findIndex(product => product.startsWith(productName.toUpperCase()));
     await this.removeItemBtn[index].click();
@@ -69,6 +67,8 @@ class PreviewCartPage extends Page {
 
   async previewCartDetails(){
     await this.CartIcon.moveTo();
+    const summary = await this.summaryCartModal;
+    await summary.waitForDisplayed({ timeout: 10000 });
   }
 
   async checkoutItems() {

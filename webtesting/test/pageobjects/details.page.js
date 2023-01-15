@@ -25,6 +25,10 @@ class DetailsPage extends Page {
         return $('#productProperties  input[name=quantity]');
     }
 
+    get navitationOptions() {
+        return $$('body > div.uiview.ng-scope > nav > a');
+    }
+
     async addItemToCart(itemName, quantity = 1) {
         let elements = await this.items.map(item => item.getText());
         const index = elements.findIndex(element => element.startsWith(itemName));
@@ -39,6 +43,12 @@ class DetailsPage extends Page {
             await this.addItemBtn.click();
             quantity++;
         }
+    }
+
+    async navigateTo(option) {
+        let navOption = await this.navitationOptions.find(async (item) => 
+            (await item.getText()).startsWith(option));
+        await navOption.click();
     }
 }
 
