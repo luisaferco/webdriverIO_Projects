@@ -5,7 +5,7 @@ const Page = require('./page');
  */
 class PreviewCartPage extends Page {
 
-  get CartIcon() {
+  get cartIcon() {
     return $('#menuCart');
   }
 
@@ -52,7 +52,7 @@ class PreviewCartPage extends Page {
   async goToItemDetails(productName) {
     await this.previewCartDetails();
     const summary = await this.summaryCartModal;
-    await summary.waitForDisplayed({ timeout: 10000 });
+    await summary.waitForDisplayed();
     let items = await this.summaryCartModalNameItems.map(product => product.getText());
     let index = items.findIndex(product => product.startsWith(productName.toUpperCase()));
     await this.summaryCartModalImageItems[index].click();
@@ -66,9 +66,9 @@ class PreviewCartPage extends Page {
   }
 
   async previewCartDetails(){
-    await this.CartIcon.moveTo();
+    await this.cartIcon.moveTo();
     const summary = await this.summaryCartModal;
-    await summary.waitForDisplayed({ timeout: 10000 });
+    await summary.waitForDisplayed();
   }
 
   async checkoutItems() {
@@ -85,7 +85,7 @@ class PreviewCartPage extends Page {
   }
 
   async goToCart(){
-    await this.CartIcon.click();
+    await this.cartIcon.click();
   }
 
 }

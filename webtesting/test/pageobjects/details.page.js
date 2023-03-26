@@ -22,7 +22,7 @@ class DetailsPage extends Page {
     }
 
     get quantityTxt() {
-        return $('#productProperties  input[name=quantity]');
+        return $('#productProperties input[name=quantity]');
     }
 
     get navitationOptions() {
@@ -30,6 +30,7 @@ class DetailsPage extends Page {
     }
 
     async addItemToCart(itemName, quantity = 1) {
+        console.log('element is ?' +itemName);
         let elements = await this.items.map(item => item.getText());
         const index = elements.findIndex(element => element.startsWith(itemName));
         await this.items[index].click();

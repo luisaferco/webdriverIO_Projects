@@ -3,12 +3,16 @@ const DetailsPage = require('../pageobjects/details.page');
 const previewCart = require('../pageobjects/previewCart.page');
 const stringUtils = require('../utils/string.utils');
 const shoppingCart = require('../pageobjects/shoppingCart.page');
+const { items } = require("../data/test.data");
 
 describe('Adding products to cart, a user should review details', () => {
 
-    it('User should see products added to cart from modal', async () => {
-        const itemName = 'HP Roar Mini Wireless Speaker';
+    beforeEach('Open main page', async()=>{
         await MainPage.open();
+    });
+
+    it('User should see products added to cart from modal', async () => {
+        const itemName = items.filter(item => item.productType.startsWith('speakers')).pop().itemName;
         await MainPage.goToSpeakersSection();
         await DetailsPage.addItemToCart(itemName);
         await previewCart.goToItemDetails(itemName);
@@ -16,9 +20,8 @@ describe('Adding products to cart, a user should review details', () => {
     });
 
     it('User should increment quantity of items to add to cart', async () => {
-        const itemName = 'HP Z3200 Wireless Mouse';
-        const numberItems = 3; 
-        await MainPage.open();
+        const itemName = items.filter(item => item.productType.startsWith('mices')).pop().itemName;
+        const numberItems = 3;
         await MainPage.goToMicesSection();
         await DetailsPage.addItemToCart(itemName, numberItems);
         await expect(previewCart.cartLink).toHaveText(numberItems.toString());
@@ -27,17 +30,16 @@ describe('Adding products to cart, a user should review details', () => {
         await expect(quantity).toEqual(stringUtils.mapQuantity(numberItems));
     });
 
-    it('The user going to the shopping cart section should see that the summary of the total purchase is according to the sum of the price of the items.', async() => {
-        const itemName = 'HP Roar Mini Wireless Speaker';
-        const itemName2 = 'HP Z3200 Wireless Mouse';
-        await MainPage.open();
+    it('The user goes to the shopping cart section should see that the summary of the total purchase is matching to the sum of the price of the items.', async () => {
+        const speakerItem = items.filter(item => item.productType.startsWith('speakers')).pop().itemName;
+        const mouseItem = items.filter(item => item.productType.startsWith('mices')).pop().itemName;
         await MainPage.goToSpeakersSection();
-        await DetailsPage.addItemToCart(itemName);
+        await DetailsPage.addItemToCart(speakerItem);
         await DetailsPage.navigateTo('HOME');
         await MainPage.goToMicesSection();
-        await DetailsPage.addItemToCart(itemName2, 2);
+        await DetailsPage.addItemToCart(mouseItem, 2);
         await previewCart.goToCart();
-        await expect(shoppingCart.nameOfItems).toHaveText(['HP Z3200 Wireless Mouse','HP Roar Mini Wireless Speaker'], { ignoreCase: true });
+        await expect(shoppingCart.nameOfItems).toHaveText([speakerItem, mouseItem], { ignoreCase: true });
         let pricesOfList = await shoppingCart.getPricesOfItemList();
         let total = await shoppingCart.summaryTotalPrice.getText();
         let totalPrice = stringUtils.currencyStringToNumber(total);

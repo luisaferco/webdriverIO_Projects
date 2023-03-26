@@ -33,10 +33,12 @@ class LoginPage extends Page {
         return $('#menuUserLink > span');
     }
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
+    get createAccount() {
+        return $('a.create-new-account.ng-scope');
+    }
+
+
+
     async login(username, password) {
         await this.loginBtn.waitForClickable(
             {
@@ -44,12 +46,6 @@ class LoginPage extends Page {
                 timeoutMsg: 'waiting until login btn is clickeable'
             });
         await this.loginBtn.click();
-        await this.inputPassword.waitForClickable(
-            {
-                timeout: 10000,
-                timeoutMsg: 'email field did not display'
-            });
-
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
@@ -58,8 +54,8 @@ class LoginPage extends Page {
     /**
      * overwrite specific options to adapt it to page object
      */
-    open() {
-        return super.open('login');
+    async open() {
+        return await super.open('login');
     }
 }
 

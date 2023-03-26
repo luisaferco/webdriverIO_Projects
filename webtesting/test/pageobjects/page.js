@@ -14,4 +14,16 @@ module.exports = class Page {
     async open() {
         await browser.url('https://www.advantageonlineshopping.com/#/');
     }
+
+     /**
+     * custom click with specific options to adapt it to page object
+     */
+     async clickOn(element, message = 'waiting until element is clickeable'){
+        await element.waitForClickable(
+            {
+                timeout: 15000,
+                timeoutMsg: message
+            });
+            element.click();    
+    }
 }

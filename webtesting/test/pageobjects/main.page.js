@@ -39,7 +39,7 @@ class MainPage extends Page {
         );
         await this.speakersSection.click();
         const items = await $('a.productName')
-        await items.waitForDisplayed({ timeout: 10000 })    
+        await items.waitForDisplayed()    
     }
 
     async goToMicesSection() {
@@ -50,8 +50,8 @@ class MainPage extends Page {
             }
         );
         await this.micesSection.click();
-        const items = await $('a.productName')
-        await items.waitForDisplayed({ timeout: 10000 })    
+        const items = await $('a.productName');
+        await items.waitForDisplayed();    
     }
 
     async navigateToPopularItems() {
