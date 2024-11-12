@@ -15,6 +15,9 @@ function add(accumulator, a) {
       return accumulator + a;
     }
 
-module.exports.mapQuantity = mapQuantity;
-module.exports.currencyStringToNumber = currencyStringToNumber;
-module.exports.sumPrices = sumPrices;
+const _mapQuantity = mapQuantity;
+export { _mapQuantity as mapQuantity };
+const _currencyStringToNumber = currencyStringToNumber;
+export { _currencyStringToNumber as currencyStringToNumber };
+const _sumPrices = sumPrices;
+export { _sumPrices as sumPrices };
