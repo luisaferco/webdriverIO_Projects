@@ -1,4 +1,4 @@
-const Page = require('./page');
+import Page from './page';
 
 class MainPage extends Page {
 
@@ -59,4 +59,4 @@ class MainPage extends Page {
     }
 }
 
-module.exports = new MainPage();
+export default new MainPage();

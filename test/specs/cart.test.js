@@ -1,8 +1,8 @@
-const MainPage = require('../pageobjects/main.page.js');
-const DetailsPage = require('../pageobjects/details.page');
-const previewCart = require('../pageobjects/previewCart.page');
-const stringUtils = require('../utils/string.utils');
-const shoppingCart = require('../pageobjects/shoppingCart.page');
+import MainPage from '../pageobjects/main.page.js';
+import DetailsPage from '../pageobjects/details.page';
+import previewCart from '../pageobjects/previewCart.page';
+import { mapQuantity, currencyStringToNumber, sumPrices } from '../utils/string.utils';
+import shoppingCart from '../pageobjects/shoppingCart.page';
 
 describe('Adding products to cart, a user should review details', () => {
 
@@ -24,7 +24,7 @@ describe('Adding products to cart, a user should review details', () => {
         await expect(previewCart.cartLink).toHaveText(numberItems.toString());
         await previewCart.previewCartDetails();
         const quantity = await previewCart.getQuantityItem(itemName);
-        await expect(quantity).toEqual(stringUtils.mapQuantity(numberItems));
+        await expect(quantity).toEqual(mapQuantity(numberItems));
     });
 
     it('The user going to the shopping cart section should see that the summary of the total purchase is according to the sum of the price of the items.', async() => {
@@ -40,8 +40,8 @@ describe('Adding products to cart, a user should review details', () => {
         await expect(shoppingCart.nameOfItems).toHaveText(['HP Z3200 Wireless Mouse','HP Roar Mini Wireless Speaker'], { ignoreCase: true });
         let pricesOfList = await shoppingCart.getPricesOfItemList();
         let total = await shoppingCart.summaryTotalPrice.getText();
-        let totalPrice = stringUtils.currencyStringToNumber(total);
-        await expect(totalPrice).toEqual(stringUtils.sumPrices(pricesOfList))
+        let totalPrice = currencyStringToNumber(total);
+        await expect(totalPrice).toEqual(sumPrices(pricesOfList))
     });
 
     afterEach('clean cookie data', async () => {

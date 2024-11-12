@@ -1,4 +1,4 @@
-const Page = require('./page');
+import Page from './page';
 
 class DetailsPage extends Page {
     get addToCartBtn() {
@@ -52,4 +52,4 @@ class DetailsPage extends Page {
     }
 }
 
-module.exports = new DetailsPage();
+export default new DetailsPage();

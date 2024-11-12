@@ -1,4 +1,4 @@
-const mainPage = require("../pageobjects/main.page");
+import mainPage from "../pageobjects/main.page";
 
 
 describe('User navigates to the Main page', () => {

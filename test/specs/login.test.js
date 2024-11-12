@@ -1,5 +1,5 @@
-const MainPage = require('../pageobjects/main.page.js');
-const LoginPage = require('../pageobjects/login.page.js');
+import MainPage from '../pageobjects/main.page.js';
+import LoginPage from '../pageobjects/login.page.js';
 
 describe('User is able to login in Demo shopping page', () => {
 

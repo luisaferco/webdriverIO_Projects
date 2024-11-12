@@ -1,4 +1,4 @@
-const Page = require('./page');
+import Page from './page';
 
 class CheckoutPage extends Page {
 
@@ -9,4 +9,4 @@ class CheckoutPage extends Page {
 
 }
 
-module.exports = new CheckoutPage();
+export default new CheckoutPage();

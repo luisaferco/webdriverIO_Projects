@@ -23,7 +23,7 @@ This repositoriy is a GitHub example proyect. You can use it to have a guide abo
 
 Once you have the code on your computer, open a terminal and run the following command in the directory where you've cloned the project:
 ```
-npm ci
+npm install @wdio/cli
 ```
 
 ### Execution

@@ -1,7 +1,7 @@
-const previewCart = require("../pageobjects/previewCart.page");
-const checkoutPage = require("../pageobjects/checkout.page");
-const detailsPage = require("../pageobjects/details.page");
-const mainPage = require("../pageobjects/main.page");
+import previewCart from "../pageobjects/previewCart.page";
+import checkoutPage from "../pageobjects/checkout.page";
+import detailsPage from "../pageobjects/details.page";
+import mainPage from "../pageobjects/main.page";
 
 describe('Go to checkout section after adding products to cart', () => {
 

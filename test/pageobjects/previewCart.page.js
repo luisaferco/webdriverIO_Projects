@@ -1,4 +1,4 @@
-const Page = require('./page');
+import Page from './page';
 
 /**
  * sub page containing Cart locators
@@ -90,4 +90,4 @@ class PreviewCartPage extends Page {
 
 }
 
-module.exports = new PreviewCartPage();
+export default new PreviewCartPage();

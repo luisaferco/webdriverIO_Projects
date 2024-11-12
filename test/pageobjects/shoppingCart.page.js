@@ -1,5 +1,5 @@
-const Page = require('./page');
-const stringUtils = require('../utils/string.utils');
+import Page from './page';
+import { currencyStringToNumber } from '../utils/string.utils';
 
 class ShoppingCartPage extends Page {
 
@@ -25,10 +25,10 @@ class ShoppingCartPage extends Page {
 
       async getPricesOfItemList() {
             let prices = await this.priceOfitem.map(price => price.getText());
-            return prices.map(priceString => stringUtils.currencyStringToNumber(priceString));
+            return prices.map(priceString => currencyStringToNumber(priceString));
 
       }
 
 }
 
-module.exports = new ShoppingCartPage();
+export default new ShoppingCartPage();
